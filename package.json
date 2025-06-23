@@ -1,0 +1,10 @@
+{
+  "name": "meu-cli-react",
+  "version": "1.0.0",
+  "bin": {
+    "my-react-project": "./index.js"
+  },
+  "dependencies": {
+    "execa": "^8.0.1"
+  }
+}

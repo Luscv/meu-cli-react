@@ -23,11 +23,11 @@ As I learned about Command-line interfaces (CLI), I understood how React project
 At the moment, I prefer to run this code locally (as I'm  still thinking about a cool command-line to publish as an npm package, haha).
 So if you find it useful (like to use the same default stack as I), You can clone this repository and run it in your terminal like this:
 ```
-$ cd my-react-cli
+$ cd my-react-quickstart
 $ npm link
 ```
 And then in your preferred project folder, run (it will create a new project folder, so don't worry about your code scattered in your main folder):
 ```
-$ my-react-project project_name
+$ my-react-quickstart project_name
 ```
 And you're ready to develop your new project! 

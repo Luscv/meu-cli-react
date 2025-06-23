@@ -1,8 +1,8 @@
 {
-  "name": "meu-cli-react",
+  "name": "my-react-quickstart",
   "version": "1.0.0",
   "bin": {
-    "my-react-project": "./index.js"
+    "my-react-quickstart": "./index.js"
   },
   "dependencies": {
     "execa": "^8.0.1"

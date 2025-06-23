@@ -7,23 +7,23 @@ async function main() {
   const projectName = process.argv[2];
   
   if (!projectName) {
-    console.error('❌ Forneça um nome para o projeto. Exemplo: meu-cli-react nome-do-projeto');
+    console.error('❌ Provide a name for the project. Example: my-react-quickstart project_name');
     process.exit(1);
   }
 
   try {
-    // Criar projeto com Vite
+    // Create project using Vite
     await execa('npm', ['create', 'vite@latest', projectName, '--', '--template', 'react'], {
       stdio: 'inherit'
     });
 
     process.chdir(projectName);
 
-    // Remover arquivos JSX originais
+    // Deleting JSX original files
     fs.unlinkSync('src/App.jsx');
     fs.unlinkSync('src/main.jsx');
 
-    // Instalar dependências
+    // Installing dependencies
     await execa('npm', ['install', '-D', 
       'typescript',
       '@types/react',
@@ -37,7 +37,7 @@ async function main() {
       'postcss@latest',
     ], { stdio: 'inherit' });
 
-    // Configurar Tailwind CSS v4
+    // Setting up Tailwind CSS v4
     fs.writeFileSync('tailwind.config.js', `
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -51,7 +51,7 @@ export default {
   plugins: [],
 }`);
 
-    // Configurar PostCSS
+    // Setting up PostCSS
     fs.writeFileSync('postcss.config.js', `
 export default {
   plugins: {
@@ -60,12 +60,12 @@ export default {
 }
 `);
 
-    // Configurar CSS com diretiva @config
+    // Setting up CSS directive @config
     fs.writeFileSync('src/index.css', `
 @import "tailwindcss"
 `);
 
-    // Criar componentes TypeScript
+    //Creating TypeScript components
     fs.unlinkSync('src/App.css');
     
     fs.writeFileSync('src/App.tsx', `
@@ -75,7 +75,7 @@ function App() {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold text-blue-600">
-        Projeto iniciado
+        Hello World!
       </h1>
     </div>
   );
@@ -120,7 +120,7 @@ fs.writeFileSync('tsconfig.json', `
       "include": ["src"]
     }
     `);
-    // Instalar dependências restantes
+    // Installing other dependencies
     await execa('npm', ['install', 
       'react-icons',
       'lodash',
@@ -128,15 +128,15 @@ fs.writeFileSync('tsconfig.json', `
     ], { stdio: 'inherit' });
 
 
-    console.log('\n✅ Configuração finalizada com:');
-    console.log('- TypeScript inicializado');
+    console.log('\n✅ Setup finished with:');
+    console.log('- TypeScript initialized');
     console.log('- Tailwind CSS v4');
     console.log('- Prettier');
     console.log('- Eslint');
     console.log('- Axios');
 
   } catch (error) {
-    console.error('❌ Erro durante a configuração:', error.message);
+    console.error('❌ Error during setup:', error.message);
     process.exit(1);
   }
 }
